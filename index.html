@@ -22,9 +22,7 @@
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
-
     body {
       font-family: 'DM Sans', sans-serif;
       background: var(--bg);
@@ -34,7 +32,6 @@
       overflow-x: hidden;
     }
 
-    /* ── NOISE OVERLAY ── */
     body::before {
       content: '';
       position: fixed;
@@ -45,7 +42,6 @@
       opacity: 0.4;
     }
 
-    /* ── NAV ── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -87,7 +83,6 @@
 
     .nav-links a:hover { color: var(--accent); }
 
-    /* ── HERO ── */
     #hero {
       min-height: 100vh;
       display: flex;
@@ -110,21 +105,17 @@
 
     .hero-glow {
       position: absolute;
-      width: 600px;
-      height: 600px;
+      width: 600px; height: 600px;
       background: radial-gradient(circle, rgba(0,102,255,0.12) 0%, transparent 70%);
-      top: 10%;
-      right: -10%;
+      top: 10%; right: -10%;
       pointer-events: none;
     }
 
     .hero-glow2 {
       position: absolute;
-      width: 400px;
-      height: 400px;
+      width: 400px; height: 400px;
       background: radial-gradient(circle, rgba(0,212,255,0.07) 0%, transparent 70%);
-      bottom: 10%;
-      left: -5%;
+      bottom: 10%; left: -5%;
       pointer-events: none;
     }
 
@@ -192,10 +183,7 @@
       animation: fadeUp 0.8s 0.6s ease forwards;
     }
 
-    .hero-headline strong {
-      color: var(--text);
-      font-weight: 500;
-    }
+    .hero-headline strong { color: var(--text); font-weight: 500; }
 
     .hero-btns {
       display: flex;
@@ -239,15 +227,11 @@
       transition: all 0.25s;
     }
 
-    .btn-outline:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
     .hero-scroll {
       position: absolute;
-      bottom: 3rem;
-      left: 4rem;
+      bottom: 3rem; left: 4rem;
       display: flex;
       align-items: center;
       gap: 1rem;
@@ -264,8 +248,7 @@
     }
 
     .scroll-line {
-      width: 40px;
-      height: 1px;
+      width: 40px; height: 1px;
       background: var(--dim);
       position: relative;
       overflow: hidden;
@@ -290,7 +273,6 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* ── SECTION SHARED ── */
     section {
       padding: 7rem 4rem;
       max-width: 1200px;
@@ -335,7 +317,7 @@
       margin: 0;
     }
 
-    /* ── ABOUT ── */
+    /* ABOUT */
     #about {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -388,7 +370,7 @@
       font-weight: 300;
     }
 
-    /* ── PROJECTS ── */
+    /* PROJECTS */
     #projects { padding-top: 5rem; padding-bottom: 5rem; }
 
     .projects-intro {
@@ -435,14 +417,6 @@
       flex: 1;
       display: flex;
       flex-direction: column;
-    }
-
-    .project-number {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
-      color: var(--dim);
-      letter-spacing: 0.1em;
-      margin-bottom: 1rem;
     }
 
     .project-name {
@@ -524,7 +498,7 @@
       stroke-width: 2;
     }
 
-    /* ── EXPERIENCE ── */
+    /* EXPERIENCE */
     #experience { padding-top: 5rem; padding-bottom: 5rem; }
 
     .exp-list { margin-top: 3rem; }
@@ -570,23 +544,24 @@
       color: var(--muted);
       font-size: 0.9rem;
       line-height: 1.8;
+      list-style: none;
     }
 
     .exp-desc li {
       margin-bottom: 0.3rem;
-      padding-left: 1rem;
+      padding-left: 1.2rem;
       position: relative;
     }
 
     .exp-desc li::before {
       content: '→';
       position: absolute;
-      left: -0.2rem;
+      left: 0;
       color: var(--accent);
       font-size: 0.8em;
     }
 
-    /* ── HONORS ── */
+    /* HONORS */
     #honors { padding-top: 5rem; padding-bottom: 5rem; }
 
     .honors-grid {
@@ -618,12 +593,9 @@
     }
 
     .honor-card:hover::before { transform: scaleX(1); }
-    .honor-card:hover { border-color: var(--border); transform: translateY(-2px); }
+    .honor-card:hover { transform: translateY(-2px); }
 
-    .honor-icon {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-    }
+    .honor-icon { font-size: 1.8rem; margin-bottom: 1rem; }
 
     .honor-title {
       font-family: 'Syne', sans-serif;
@@ -647,7 +619,7 @@
       line-height: 1.6;
     }
 
-    /* ── SKILLS ── */
+    /* SKILLS */
     #skills { padding-top: 5rem; padding-bottom: 5rem; }
 
     .skills-grid {
@@ -693,7 +665,7 @@
       flex-shrink: 0;
     }
 
-    /* ── CERTS ── */
+    /* CERTS */
     #certs { padding-top: 5rem; padding-bottom: 5rem; }
 
     .certs-grid {
@@ -741,7 +713,7 @@
       margin-top: 0.2rem;
     }
 
-    /* ── ACTIVITIES ── */
+    /* ACTIVITIES */
     #activities { padding-top: 5rem; padding-bottom: 5rem; }
 
     .activities-row {
@@ -765,10 +737,9 @@
     }
 
     .activity-chip:hover { border-color: var(--accent); color: var(--text); }
-
     .activity-chip span { font-size: 1rem; }
 
-    /* ── EDUCATION ── */
+    /* EDUCATION */
     #education { padding-top: 5rem; padding-bottom: 5rem; }
 
     .edu-card {
@@ -800,10 +771,7 @@
       margin-bottom: 1.2rem;
     }
 
-    .edu-languages {
-      display: flex;
-      gap: 0.6rem;
-    }
+    .edu-languages { display: flex; gap: 0.6rem; }
 
     .lang-tag {
       font-family: 'DM Mono', monospace;
@@ -831,7 +799,7 @@
       text-align: right;
     }
 
-    /* ── CONTACT ── */
+    /* CONTACT */
     #contact {
       padding-top: 5rem;
       padding-bottom: 8rem;
@@ -909,7 +877,6 @@
 
     .contact-btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
-    /* ── FOOTER ── */
     footer {
       border-top: 1px solid var(--border);
       padding: 2rem 4rem;
@@ -931,19 +898,14 @@
       color: var(--dim);
     }
 
-    /* ── SCROLL REVEAL ── */
     .reveal {
       opacity: 0;
       transform: translateY(30px);
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
 
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ── MOBILE ── */
     @media (max-width: 900px) {
       nav { padding: 1rem 1.5rem; }
       .nav-links { display: none; }
@@ -983,7 +945,7 @@
     <div class="hero-glow"></div>
     <div class="hero-glow2"></div>
     <div class="hero-content">
-      <div class="hero-tag">Grade 10 · St. Catharines, Ontario</div>
+      <div class="hero-tag">Grade 10 · Ontario</div>
       <h1 class="hero-name">Muhammad<br><span>Taha</span></h1>
       <p class="hero-headline">
         <strong>Aspiring Engineer</strong> · Systems Thinker · Student Builder · Technology Explorer.<br>
@@ -1047,12 +1009,12 @@
     </div>
     <div class="projects-grid">
 
+      <!-- WellSpace -->
       <div class="project-card reveal">
         <div class="project-bar"></div>
         <div class="project-body">
-          <div class="project-number">01 / 03</div>
           <div class="project-name">WellSpace</div>
-          <p class="project-desc">A free student wellness web app built for high school students and teachers. Features mood tracking, weekly goal planning, sleep logging, crisis helplines by province, and a teacher dashboard with class management and student wellbeing alerts.</p>
+          <p class="project-desc">High school students had no simple, accessible way to track their mental wellbeing or signal distress to teachers — so I built WellSpace. It's a free full-stack wellness web app with mood tracking, weekly goal planning, sleep logging, province-specific crisis helplines, and a teacher dashboard featuring real-time student wellbeing alerts and class management. Launched to a real user base and now actively used by students and teachers across multiple schools.</p>
           <div class="project-tags">
             <span class="tag">HTML</span>
             <span class="tag">CSS</span>
@@ -1062,7 +1024,7 @@
           </div>
           <div class="project-learned">
             <div class="project-learned-label">Key Learnings</div>
-            <p>Full product lifecycle from design to deployment. Firebase real-time sync, authentication flows, and building for a real user base.</p>
+            <p>Owned the full product lifecycle from design to deployment. Built Firebase real-time sync, authentication flows, and cross-device auto-login for a real user base.</p>
           </div>
           <a href="https://wellspaceapp.github.io/WellSpace/" target="_blank" class="project-link">
             Live Site
@@ -1071,12 +1033,12 @@
         </div>
       </div>
 
+      <!-- Disaster Safe Home -->
       <div class="project-card reveal" style="transition-delay:0.1s">
         <div class="project-bar"></div>
         <div class="project-body">
-          <div class="project-number">02 / 03</div>
           <div class="project-name">Disaster Safe Home</div>
-          <p class="project-desc">An engineering prototype of a disaster-resistant home model focused on earthquake safety. Applied base isolation concepts to reduce vibration transfer, informed by research on structural materials, stability constraints, and real-life building engineering.</p>
+          <p class="project-desc">Conventional home designs transfer dangerous seismic vibrations directly to occupants during earthquakes. I researched structural engineering principles and designed a physical prototype applying base isolation to absorb and redirect ground movement before it reaches the structure. The model used researched materials and real load-path constraints to simulate a realistic disaster-resistant build. Won the Outstanding Achievement Award from Professional Engineers Ontario at NRSEF 2026.</p>
           <div class="project-tags">
             <span class="tag">Structural Engineering</span>
             <span class="tag">Research</span>
@@ -1084,21 +1046,21 @@
           </div>
           <div class="project-learned">
             <div class="project-learned-label">Key Learnings</div>
-            <p>Applied real engineering principles (base isolation, load paths) to a physical model. Won the Professional Engineers Ontario Award at NRSEF 2026.</p>
+            <p>Applied real engineering principles including base isolation and load paths to a physical model. Validated through competitive peer review at a regional science and engineering fair.</p>
           </div>
-          <a href="#" class="project-link"> https://www.linkedin.com/in/muhammad-taha20100618/details/projects/
+          <a href="https://www.linkedin.com/in/muhammad-taha20100618/details/projects/" target="_blank" class="project-link">
             View Details
             <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
       </div>
 
+      <!-- FuturePaths -->
       <div class="project-card reveal" style="transition-delay:0.2s">
         <div class="project-bar"></div>
         <div class="project-body">
-          <div class="project-number">03 / 03</div>
           <div class="project-name">FuturePaths</div>
-          <p class="project-desc">A student-led platform supporting high school students through peer insight, academic readiness, and career exploration. Focused on student voice, shared experience, and practical resources that help students stay organized and move forward with confidence.</p>
+          <p class="project-desc">High school students had no single peer-driven space to access honest guidance on academics, career paths, and life beyond the classroom. I founded FuturePaths, a student-led platform built on peer insight, academic readiness tools, and career exploration resources. Led all planning, outreach, and early program development, prioritizing student voice and accessibility. Actively used by students seeking organized, confidence-building resources outside of official school channels.</p>
           <div class="project-tags">
             <span class="tag">HTML</span>
             <span class="tag">CSS</span>
@@ -1107,10 +1069,10 @@
           </div>
           <div class="project-learned">
             <div class="project-learned-label">Key Learnings</div>
-            <p>Led outreach and program development from scratch. Learned how to build something people actually need by listening to a real student audience.</p>
+            <p>Built something people actually needed by listening first. Led outreach and program development from zero, learning how to grow a student audience through genuine value.</p>
           </div>
-          <a href="#" class="project-link">https://futurepathsstudent.base44.app
-            View Details
+          <a href="https://futurepathsstudent.base44.app" target="_blank" class="project-link">
+            View Live
             <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
@@ -1127,50 +1089,69 @@
     <h2 class="section-title">Where I've contributed.</h2>
     <div class="exp-list">
 
+      <!-- 20/20 Mission IT -->
       <div class="exp-item">
         <div class="exp-meta">
           <div class="exp-period">2026 — Present</div>
           <div class="exp-org">20/20 Mission</div>
         </div>
         <div>
-          <div class="exp-role">IT & Communications Volunteer</div>
+          <div class="exp-role">IT and Communications Volunteer</div>
           <ul class="exp-desc">
             <li>Participated in IT team meetings to plan website structure, updates, and development goals</li>
             <li>Built and edited website sections using AI-assisted development tools to improve layouts and content</li>
             <li>Used VS Code to view, edit, and organize files within a professional development environment</li>
-            <li>Applied Git for version control — tracking changes, managing updates, and collaborative coding workflows</li>
-            <li>Supported education-based outreach content to raise awareness on social issues affecting youth</li>
+            <li>Applied Git for version control, tracking changes, managing updates, and supporting collaborative coding workflows</li>
+            <li>Supported education-based outreach content to raise awareness on social issues affecting youth and communities</li>
           </ul>
         </div>
       </div>
 
+      <!-- WellSpace Founder -->
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-period">Mar 2026</div>
+          <div class="exp-org">WellSpace</div>
+        </div>
+        <div>
+          <div class="exp-role">Founder</div>
+          <ul class="exp-desc">
+            <li>Identified a gap in mental health resources for high school students and built WellSpace, a free student wellness web app now used across multiple schools</li>
+            <li>Designed and directed the full product including mood tracking, goal planning, sleep logging, crisis helplines by province, and a teacher dashboard with class management and real-time wellbeing alerts</li>
+            <li>Deployed with cross-device sync via Firebase, email verification via EmailJS, and auto-login for seamless access</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- FuturePaths Founder -->
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-period">Nov 2025 — Mar 2026</div>
+          <div class="exp-org">FuturePaths</div>
+        </div>
+        <div>
+          <div class="exp-role">Founder</div>
+          <ul class="exp-desc">
+            <li>Recognized that students lacked a peer-driven space for honest academic and career guidance and founded FuturePaths to fill that gap</li>
+            <li>Led all planning, outreach, and early program development with a focus on student voice and accessibility</li>
+            <li>Built resources actively used by students seeking organized, confidence-building support outside of official school channels</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- York Region -->
       <div class="exp-item">
         <div class="exp-meta">
           <div class="exp-period">2025 — 2025</div>
           <div class="exp-org">York Region Educational Services</div>
         </div>
         <div>
-          <div class="exp-role">Social Media Marketing & Design</div>
+          <div class="exp-role">Social Media Marketing and Design</div>
           <ul class="exp-desc">
-            <li>Led youth-focused social media campaigns that increased participation in educational programs</li>
-            <li>Designed creative graphics and visual content aligned to consistent branding</li>
+            <li>Led youth-focused social media campaigns that increased student participation in educational programs</li>
+            <li>Designed creative graphics and visual content aligned to consistent branding across platforms</li>
             <li>Used analytics to track campaign performance and strengthen outreach strategies</li>
             <li>Collaborated with the marketing team to prepare content for events and digital platforms</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-meta">
-          <div class="exp-period">2023 — 2024</div>
-          <div class="exp-org">Self-Initiated</div>
-        </div>
-        <div>
-          <div class="exp-role">Tutor — Math & English</div>
-          <ul class="exp-desc">
-            <li>Tutored younger students in math and English through one-on-one sessions</li>
-            <li>Helped students build confidence and measurably improve their academic performance</li>
-            <li>Developed strong communication and leadership skills through consistent mentorship</li>
           </ul>
         </div>
       </div>
@@ -1182,7 +1163,7 @@
 
   <!-- HONORS -->
   <section id="honors">
-    <div class="section-label">Honors & Awards</div>
+    <div class="section-label">Honors and Awards</div>
     <h2 class="section-title">Recognition earned.</h2>
     <div class="honors-grid">
 
@@ -1219,18 +1200,18 @@
     <div class="skills-grid">
 
       <div class="skill-category reveal">
-        <div class="skill-cat-title">Engineering & Thinking</div>
+        <div class="skill-cat-title">Engineering and Thinking</div>
         <div class="skill-item"><span class="skill-dot"></span>Problem Solving</div>
         <div class="skill-item"><span class="skill-dot"></span>Systems Thinking</div>
         <div class="skill-item"><span class="skill-dot"></span>Design Thinking</div>
-        <div class="skill-item"><span class="skill-dot"></span>Research & Prototyping</div>
+        <div class="skill-item"><span class="skill-dot"></span>Research and Prototyping</div>
         <div class="skill-item"><span class="skill-dot"></span>Structural Analysis (Introductory)</div>
       </div>
 
       <div class="skill-category reveal" style="transition-delay:0.1s">
         <div class="skill-cat-title">Technology</div>
         <div class="skill-item"><span class="skill-dot"></span>HTML, CSS, JavaScript</div>
-        <div class="skill-item"><span class="skill-dot"></span>Git & GitHub</div>
+        <div class="skill-item"><span class="skill-dot"></span>Git and GitHub</div>
         <div class="skill-item"><span class="skill-dot"></span>Visual Studio Code</div>
         <div class="skill-item"><span class="skill-dot"></span>AI-Assisted Development</div>
         <div class="skill-item"><span class="skill-dot"></span>Firebase</div>
@@ -1240,10 +1221,10 @@
       </div>
 
       <div class="skill-category reveal" style="transition-delay:0.2s">
-        <div class="skill-cat-title">Leadership & Communication</div>
+        <div class="skill-cat-title">Leadership and Communication</div>
         <div class="skill-item"><span class="skill-dot"></span>Public Speaking</div>
         <div class="skill-item"><span class="skill-dot"></span>Team Collaboration</div>
-        <div class="skill-item"><span class="skill-dot"></span>Initiative & Self-Direction</div>
+        <div class="skill-item"><span class="skill-dot"></span>Initiative and Self-Direction</div>
         <div class="skill-item"><span class="skill-dot"></span>Social Media Marketing</div>
         <div class="skill-item"><span class="skill-dot"></span>Community Outreach</div>
       </div>
@@ -1270,7 +1251,7 @@
       <div class="cert-item reveal" style="transition-delay:0.05s">
         <div class="cert-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg></div>
         <div>
-          <div class="cert-name">Business Analysis & Process Management</div>
+          <div class="cert-name">Business Analysis and Process Management</div>
           <div class="cert-issuer">Coursera · Apr 2025</div>
         </div>
       </div>
@@ -1315,7 +1296,7 @@
   <!-- ACTIVITIES -->
   <section id="activities">
     <div class="section-label">Activities</div>
-    <h2 class="section-title">School & community.</h2>
+    <h2 class="section-title">School and community.</h2>
     <div class="activities-row">
       <div class="activity-chip"><span>🕌</span> MSA — Muslim Student Association</div>
       <div class="activity-chip"><span>📸</span> Yearbook Club</div>
@@ -1358,11 +1339,15 @@
         <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         Email Me
       </a>
+      <a href="tel:3655241624" class="contact-btn contact-btn-outline">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
+        365-524-1624
+      </a>
       <a href="https://www.linkedin.com/in/muhammad-taha20100618" target="_blank" class="contact-btn contact-btn-outline">
         <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
         LinkedIn
       </a>
-      <a href="https://github.com" target="_blank" class="contact-btn contact-btn-outline">
+      <a href="https://github.com/mtahashern" target="_blank" class="contact-btn contact-btn-outline">
         <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
         GitHub
       </a>
@@ -1371,23 +1356,19 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-left">© 2026 Muhammad Taha · St. Catharines, Ontario</div>
+    <div class="footer-left">© 2026 Muhammad Taha</div>
     <div class="footer-right">Built with HTML · CSS · JavaScript</div>
   </footer>
 
   <script>
-    // Scroll reveal
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.12 });
 
     document.querySelectorAll('.reveal, .exp-item').forEach(el => observer.observe(el));
 
-    // Nav shrink on scroll
     const nav = document.querySelector('nav');
     window.addEventListener('scroll', () => {
       nav.style.padding = window.scrollY > 50 ? '0.8rem 4rem' : '1.2rem 4rem';
