@@ -1,339 +1,551 @@
-  <!-- NAV -->
-  <nav>
-    <a href="#hero" class="nav-logo">Muhammad Taha</a>
-    <ul class="nav-links">
-      <li><a href="#rolefit">Where I Fit</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#credentials">Credentials</a></li>
-      <li><a href="#contact-section">Contact</a></li>
-    </ul>
-  </nav>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammad Taha | Aspiring Engineer</title>
+<meta name="description" content="Grade 11 student building toward engineering: Disaster Safe Home, WellSpace, and FuturePaths.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Manrope:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#14110F;--ink2:#1D1916;--paper:#F4F0EA;--sand:#E9E3DA;--brass:#C4956A;--brown:#8B5E3C;--grey:#6B625A;--line:#D8D1C7;--mono:'IBM Plex Mono',monospace;--ease:cubic-bezier(.2,.7,.2,1);--t:4.5s}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+body{font-family:'Manrope',sans-serif;background:var(--paper);color:var(--ink);line-height:1.65;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+h1,h2,h3{font-family:'Playfair Display',serif;line-height:1.08}
+.mono{font-family:var(--mono)}
+.wrap{max-width:1160px;margin:0 auto;padding:6rem 3rem}
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brown);margin-bottom:1rem;display:flex;align-items:center;gap:.7rem}
+.eyebrow::before{content:'';width:2rem;height:1px;background:currentColor}
+h2{font-size:clamp(2.2rem,4.5vw,3.6rem);font-weight:800;letter-spacing:-.02em;margin-bottom:1rem}
+h2 em{color:var(--brown)}
+.sub{color:var(--grey);max-width:560px;margin-bottom:3rem}
+.dark{background:var(--ink);color:var(--paper)}
+.dark .eyebrow{color:var(--brass)}.dark h2 em{color:var(--brass)}.dark .sub{color:#A99F95}
 
-  <!-- HERO -->
-  <div id="hero">
-    <div class="hero-eyebrow">Grade 11 · [Current school, City, ON]</div>
-    <h1 class="hero-name">Muhammad<br><em>Taha.</em></h1>
-    <div class="hero-bottom">
-      <p class="hero-desc">
-        <strong>I find the problem, scope the solution, deliver it, and check that it worked.</strong> Student builder across software, structural engineering, and business, with shipped projects, a managed budget, and recognized results.
-      </p>
-      <div class="hero-btns">
-        <a href="#rolefit" class="btn btn-solid">Where I Fit</a>
-        <a href="#contact-section" class="btn btn-ghost">Get in Touch</a>
+/* INTRO: laptop opens, boots, zooms into screen */
+.loader{position:fixed;inset:0;z-index:100;background:#0c0a09;cursor:pointer;overflow:hidden;animation:lf .5s ease 4.2s forwards,gone 0s 4.75s forwards}
+@keyframes lf{to{opacity:0}}@keyframes gone{to{visibility:hidden}}
+.loader::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 55%,rgba(196,149,106,.14),transparent 60%),linear-gradient(rgba(244,240,234,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(244,240,234,.04) 1px,transparent 1px);background-size:100% 100%,48px 48px,48px 48px}
+.loader::after{content:'click anywhere to skip';position:absolute;bottom:1.5rem;left:0;right:0;text-align:center;font:.68rem var(--mono);color:#6f665d;animation:fo .3s ease 3.2s forwards}
+@keyframes fo{to{opacity:0}}
+.laptop{--W:min(66vw,640px);position:absolute;left:50%;top:50%;width:var(--W);aspect-ratio:16/10;perspective:1400px;transform:translate(-50%,-56%);animation:zoom 1.1s cubic-bezier(.7,0,.25,1) 3.4s forwards}
+@keyframes zoom{to{transform:translate(-50%,-50%) scale(var(--z,9))}}
+.lid{position:absolute;inset:0;transform-origin:50% 100%;transform:rotateX(90deg);background:#26211e;border:1px solid #3b342f;border-radius:12px 12px 0 0;padding:2.4%;box-shadow:0 40px 90px rgba(0,0,0,.6);animation:open 1.3s cubic-bezier(.3,.7,.2,1) .3s forwards}
+@keyframes open{to{transform:none}}
+.base{position:absolute;left:-7%;right:-7%;top:100%;height:5%;min-height:10px;background:linear-gradient(#d9d2c8,#9a9288);border-radius:0 0 18px 18px;box-shadow:0 22px 44px rgba(0,0,0,.6)}
+.base::after{content:'';position:absolute;left:50%;top:0;width:16%;height:45%;transform:translateX(-50%);background:#857d73;border-radius:0 0 8px 8px}
+.lscreen{position:relative;width:100%;height:100%;background:#0f0d0b;border-radius:3px;overflow:hidden;container-type:inline-size;display:flex;align-items:center;padding:0 9cqw;animation:glow 1s ease 1.7s forwards}
+@keyframes glow{to{box-shadow:0 0 70px rgba(196,149,106,.4)}}
+.lscreen::before{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;background:repeating-linear-gradient(transparent 0 2px,rgba(0,0,0,.22) 3px 4px)}
+.lscreen::after{content:'';position:absolute;inset:0;z-index:3;background:#000;pointer-events:none;animation:on .6s ease 1.65s forwards}
+@keyframes on{0%{opacity:1}12%{opacity:1;background:#F4F0EA}100%{opacity:0;background:#F4F0EA}}
+.lb{position:relative;z-index:1}
+.lb p{font:3.3cqw var(--mono);color:var(--brass);white-space:nowrap;overflow:hidden;width:0;margin-bottom:1.3cqw;border-right:2px solid var(--brass);text-shadow:0 0 8px rgba(196,149,106,.7);animation:type .45s steps(28) forwards;animation-delay:calc(1.9s + var(--n)*.38s)}
+.lb p.ok{color:var(--paper)}
+@keyframes type{to{width:var(--w);border-color:transparent}}
+.lbar{height:2px;width:50cqw;margin-top:3cqw;background:rgba(244,240,234,.15)}
+.lbar i{display:block;height:100%;width:0;background:var(--brass);box-shadow:0 0 10px var(--brass);animation:fill 1.2s ease 1.9s forwards}
+@keyframes fill{to{width:100%}}
+html.skip{--t:0s}html.skip .loader{display:none}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:1rem 3rem;background:rgba(244,240,234,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);opacity:0;animation:fi .8s ease calc(var(--t) + .2s) forwards}
+@keyframes fi{to{opacity:1}}
+nav::after{content:'';position:absolute;left:0;bottom:-1px;height:2px;width:var(--p,0%);background:var(--brown)}
+.logo{font:700 1.05rem 'Playfair Display',serif;text-decoration:none}
+nav ul{display:flex;gap:.2rem;list-style:none}
+nav li a{display:block;font:.74rem var(--mono);color:var(--grey);text-decoration:none;padding:.4rem .8rem;border-radius:99px;transition:.2s}
+nav li a:hover{background:var(--sand);color:var(--ink)}
+nav li a.on{background:var(--ink);color:var(--paper)}
+
+/* HERO */
+#hero{background:var(--ink);color:var(--paper);padding:10rem 3rem 6rem;position:relative;overflow:hidden}
+#hero::before{content:'';position:absolute;inset:-60px 0;background-image:linear-gradient(rgba(244,240,234,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(244,240,234,.05) 1px,transparent 1px);background-size:56px 56px;background-position:0 calc(var(--g,0px)*-1);mask-image:radial-gradient(ellipse at 30% 40%,#000,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at 30% 40%,#000,transparent 75%)}
+#hero::after{content:'';position:absolute;width:700px;height:700px;right:-200px;top:-200px;background:radial-gradient(circle,rgba(196,149,106,.22),transparent 65%);animation:drift 9s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translate(-80px,60px)}}
+.hero-in{position:relative;z-index:1;max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1.3fr 1fr;gap:4rem;align-items:end}
+.hero-name{font-size:clamp(3.8rem,9vw,8rem);font-weight:800;letter-spacing:-.03em;margin-bottom:1.6rem}
+.mask{display:block;overflow:hidden;padding-bottom:.1em}
+.mask span{display:block;transform:translateY(110%);animation:up 1s var(--ease) forwards;animation-delay:calc(var(--t) + var(--d,0s))}
+.mask em{color:var(--brass)}
+@keyframes up{to{transform:none}}
+.hr{opacity:0;transform:translateY(20px);animation:rise .9s var(--ease) forwards;animation-delay:calc(var(--t) + .35s + var(--d,0s))}
+@keyframes rise{to{opacity:1;transform:none}}
+.typed{font:.92rem var(--mono);color:var(--brass);margin-bottom:1.2rem;min-height:1.5em}
+.typed b{font-weight:500;color:var(--paper)}
+.cur{display:inline-block;width:2px;height:1em;background:var(--brass);margin-left:2px;vertical-align:-2px;animation:bl 1s steps(1) infinite}
+@keyframes bl{50%{opacity:0}}
+.lead{font-size:1.1rem;font-weight:300;color:#D8D1C7;max-width:500px;margin-bottom:2rem}
+.lead strong{color:var(--paper);font-weight:600}
+.btns{display:flex;gap:.7rem;flex-wrap:wrap}
+.btn{font-size:.84rem;font-weight:600;text-decoration:none;padding:.8rem 1.5rem;border-radius:99px;border:1px solid;transition:.25s}
+.btn:hover{transform:translateY(-2px)}
+.btn.solid{background:var(--brass);border-color:var(--brass);color:var(--ink)}
+.btn.solid:hover{background:var(--paper);border-color:var(--paper)}
+.btn.ghost{border-color:rgba(244,240,234,.35);color:var(--paper)}
+.btn.ghost:hover{border-color:var(--paper)}
+.spec{border:1px solid rgba(244,240,234,.2);border-radius:10px;background:rgba(244,240,234,.04);backdrop-filter:blur(6px);font-size:.86rem;overflow:hidden}
+.spec-t{font:.7rem var(--mono);letter-spacing:.1em;color:var(--brass);padding:.8rem 1.2rem;border-bottom:1px solid rgba(244,240,234,.2)}
+.row{display:grid;grid-template-columns:6.5rem 1fr;border-bottom:1px solid rgba(244,240,234,.1)}
+.row:last-child{border:0}
+.row dt,.row dd{padding:.75rem 1.2rem}
+.row dt{font:.7rem var(--mono);color:#A99F95}
+
+/* TICKER */
+.ticker{background:var(--brown);color:var(--paper);overflow:hidden;white-space:nowrap;font:.78rem var(--mono)}
+.track{display:inline-flex;padding:.9rem 0;animation:tick 34s linear infinite}
+.track:hover{animation-play-state:paused}
+.track span{margin-right:2.2rem}.track .s{color:var(--brass)}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .9s var(--ease);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+
+/* LAB (bento) */
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:1rem}
+.cell{background:#fff;border:1px solid var(--line);border-radius:14px;padding:1.5rem;position:relative;overflow:hidden;transition:box-shadow .3s,transform .3s}
+.cell:hover{box-shadow:0 18px 40px rgba(20,17,15,.1);transform:translateY(-3px)}
+.cell h3{font-size:1.45rem;margin:.2rem 0 .4rem}
+.cell p{font-size:.9rem;color:var(--grey)}
+.cell.k{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.cell.k p{color:#B5ACA2}
+.c-quake{grid-column:span 3;grid-row:span 2}
+.c-code{grid-column:span 3}
+.c-flow{grid-column:span 3}
+.c-method{grid-column:span 4}
+.c-stat{grid-column:span 2;display:flex;flex-direction:column;justify-content:center}
+.stage{height:230px;margin:.8rem 0;background:var(--paper);border:1px solid var(--line);border-radius:10px;position:relative;overflow:hidden;--g:0px;--b:0px}
+.stage svg{position:absolute;inset:0;width:100%;height:100%}
+.ground{animation:shk .5s ease-in-out infinite}
+.bld{animation:shk .5s ease-in-out infinite;animation-name:shkb}
+@keyframes shk{0%,100%{transform:translateX(calc(var(--amp,7)*-1px))}50%{transform:translateX(calc(var(--amp,7)*1px))}}
+@keyframes shkb{0%,100%{transform:translateX(calc(var(--bamp,7)*-1px))}50%{transform:translateX(calc(var(--bamp,7)*1px))}}
+.stage.iso{--bamp:1.2}
+.qctl{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap}
+.tog{font:500 .74rem var(--mono);background:var(--ink);color:var(--paper);border:0;border-radius:99px;padding:.55rem 1rem;cursor:pointer;transition:.2s}
+.tog:hover{background:var(--brown)}
+.tog[aria-pressed=false]{background:#fff;color:var(--ink);border:1px solid var(--ink)}
+.qctl label{font:.7rem var(--mono);color:var(--grey);display:flex;align-items:center;gap:.5rem}
+.qctl input{accent-color:var(--brown);width:90px}
+.code{font:.76rem/1.8 var(--mono);color:#D8D1C7;margin:.8rem 0;white-space:pre-wrap}
+.code b{color:var(--brass);font-weight:500}.code i{color:#8c8278;font-style:normal}
+.flowsvg{width:100%;height:150px;margin:.4rem 0;color:var(--brass)}
+.flowsvg text{font:9.5px var(--mono);fill:var(--paper);stroke:none}
+.fl{stroke-dasharray:5 6;animation:fl 1s linear infinite}
+@keyframes fl{to{stroke-dashoffset:-22}}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;margin-top:1rem}
+.step{border:1px solid var(--line);border-radius:10px;padding:.9rem;font-size:.82rem;color:var(--grey)}
+.step b{display:block;font:500 .72rem var(--mono);color:var(--brown);margin-bottom:.2rem}
+.big{font:800 3.4rem 'Playfair Display',serif;line-height:1;color:var(--brass)}
+.stat small{display:block;font-size:.82rem;color:#B5ACA2;margin-bottom:1rem}
+
+/* PROJECTS */
+#projects{background:var(--sand)}
+.proj{display:grid;grid-template-columns:280px 1fr;gap:3rem;padding:2.4rem;margin-bottom:1.2rem;background:var(--paper);border:1px solid var(--line);border-radius:16px;position:relative;overflow:hidden;transition:box-shadow .3s,opacity .8s ease,transform .9s var(--ease)}
+.proj:hover{box-shadow:0 20px 44px rgba(20,17,15,.12)}
+.proj::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(196,149,106,.22),transparent 60%);opacity:0;transition:opacity .3s}
+.proj:hover::before{opacity:1}
+.proj>*{position:relative}
+.num{font:800 4.5rem 'Playfair Display',serif;color:var(--line);line-height:1}
+.kind{font:.7rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--brown);margin-top:.6rem}
+.proj h3{font-size:1.9rem;margin:.3rem 0 .8rem}
+.tag{display:inline-block;font:.68rem var(--mono);color:var(--grey);background:var(--sand);padding:.2rem .55rem;border-radius:99px;margin:0 .25rem .3rem 0}
+.plink{display:block;font-size:.82rem;font-weight:600;color:var(--brown);text-decoration:none;margin-top:.5rem}
+.plink:hover{text-decoration:underline}
+.proj dl{display:grid;grid-template-columns:6rem 1fr;gap:1rem 1.2rem;font-size:.94rem}
+.proj dt{font:.72rem var(--mono);color:var(--brown);padding-top:.2rem}
+.proj dd{color:var(--grey)}.proj dd strong{color:var(--ink)}
+
+/* EXPERIENCE */
+.job{display:grid;grid-template-columns:210px 1fr;gap:2.5rem;padding:2rem 0 2rem 1.8rem;position:relative}
+.job::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--brass);transform:scaleY(0);transform-origin:top;transition:transform 1.1s ease .1s}
+.job.in::before{transform:none}
+.when{font:.74rem var(--mono);color:var(--brass)}.org{font-size:.86rem;color:#A99F95}
+.job h3{font-size:1.3rem;margin-bottom:.6rem}
+.job ul{list-style:none}
+.job li{font-size:.92rem;color:#C9C1B7;padding-left:1.1rem;position:relative;margin-bottom:.25rem}
+.job li::before{content:'';position:absolute;left:0;top:.85em;width:6px;height:1px;background:var(--brass)}
+
+/* SKILLS + RECOGNITION */
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem}
+.cols h3{font:500 .76rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--brown);padding-bottom:.7rem;margin-bottom:.4rem;border-bottom:1px solid var(--ink)}
+.cols ul{list-style:none}
+.cols li{font-size:.92rem;padding:.5rem 0;border-bottom:1px solid var(--line)}
+.cols li small{color:var(--grey);font-size:.75rem}
+.award{background:var(--ink);color:var(--paper);padding:2.4rem;border-radius:16px;margin-bottom:3rem;position:relative;overflow:hidden}
+.award::after{content:'';position:absolute;right:-80px;top:-80px;width:280px;height:280px;border:1px solid rgba(196,149,106,.35);border-radius:50%;box-shadow:0 0 0 40px rgba(196,149,106,.06),0 0 0 80px rgba(196,149,106,.04)}
+.award .kind{color:var(--brass);margin:0}
+.award h3{font-size:1.9rem;margin:.4rem 0 .5rem}
+.award p{color:#D8D1C7;max-width:560px;font-size:.94rem;position:relative;z-index:1}
+.edu{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--ink)}
+.edu h3{font-size:1.5rem}.edu p{color:var(--grey);font-size:.9rem}
+
+/* CONTACT */
+#contact{position:relative;overflow:hidden;background:var(--ink);color:var(--paper)}
+#contact::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 25% 50%,rgba(196,149,106,.25),transparent 55%);animation:gl 6s ease-in-out infinite alternate}
+@keyframes gl{to{transform:translateX(40%) scale(1.2)}}
+#contact .wrap{position:relative;display:flex;justify-content:space-between;align-items:flex-end;gap:3rem;flex-wrap:wrap}
+#contact h2{font-size:clamp(3rem,7vw,6rem);margin:0}
+footer{background:var(--ink);color:#8c8278;font:.7rem var(--mono);padding:1.5rem 3rem;display:flex;justify-content:space-between;border-top:1px solid rgba(244,240,234,.12)}
+
+/* CURSOR */
+.cd,.cr{display:none;position:fixed;top:0;left:0;pointer-events:none;z-index:120;border-radius:50%;mix-blend-mode:difference}
+@media(pointer:fine){.cd,.cr{display:block}}
+.cd{width:7px;height:7px;margin:-3.5px 0 0 -3.5px;background:#F4F0EA}
+.cr{width:34px;height:34px;margin:-17px 0 0 -17px;border:1px solid #F4F0EA;transition:width .25s,height .25s,margin .25s}
+.cr.big{width:64px;height:64px;margin:-32px 0 0 -32px}
+
+@media(max-width:900px){
+html{scroll-padding-top:6.5rem}
+nav{flex-wrap:wrap;padding:.7rem 1rem .5rem}
+nav ul{width:100%;overflow-x:auto;margin-top:.4rem;scrollbar-width:none}
+#hero{padding:9rem 1.4rem 4rem}.hero-in{grid-template-columns:1fr;gap:2.5rem}
+.wrap{padding:4rem 1.4rem}
+.bento,.cols,.proj,.job{grid-template-columns:1fr}
+.c-quake,.c-code,.c-flow,.c-method,.c-stat{grid-column:auto;grid-row:auto}
+.steps{grid-template-columns:1fr 1fr}
+.proj{padding:1.5rem;gap:1.2rem}.proj dl{grid-template-columns:1fr;gap:.2rem}.proj dd{margin-bottom:.8rem}
+.job{gap:.4rem}.laptop{--W:86vw}
+footer{padding:1.4rem;flex-direction:column;gap:.3rem}}
+@media(prefers-reduced-motion:reduce){
+.loader{display:none}html{scroll-behavior:auto}
+.mask span,.hr,nav{animation:none!important;opacity:1;transform:none}
+.rv{opacity:1;transform:none;transition:none}.job::before{transform:none;transition:none}
+.ground,.bld,.fl,.track,#hero::after,#contact::before{animation:none!important}}
+</style>
+</head>
+<body>
+
+<div class="loader" aria-hidden="true">
+  <div class="laptop">
+    <div class="lid"><div class="lscreen"><div class="lb">
+      <p style="--n:0;--w:19ch">&gt; muhammad_taha.exe</p>
+      <p style="--n:1;--w:36ch">&gt; building something worth scrolling</p>
+      <p style="--n:2;--w:8ch" class="ok">&gt; ready.</p>
+      <div class="lbar"><i></i></div>
+    </div></div></div>
+    <div class="base"></div>
+  </div>
+</div>
+
+<nav>
+  <a href="#hero" class="logo">Muhammad Taha</a>
+  <ul>
+    <li><a href="#lab">Lab</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#recognition">Recognition</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header id="hero">
+  <div class="hero-in">
+    <div>
+      <h1 class="hero-name"><span class="mask"><span>Muhammad</span></span><span class="mask"><span style="--d:.15s"><em>Taha</em></span></span></h1>
+      <p class="typed hr">Building toward <b id="ty"></b><span class="cur"></span></p>
+      <p class="lead hr" style="--d:.1s"><strong>Grade 11 student building toward engineering.</strong> I design, build, and test things that solve real problems: an earthquake-resistant home, a live web app for students and teachers, and a student-led guidance initiative.</p>
+      <div class="btns hr" style="--d:.2s">
+        <a href="#projects" class="btn solid">See my projects</a>
+        <a href="#contact" class="btn ghost">Get in touch</a>
       </div>
+    </div>
+    <div class="spec hr" style="--d:.15s">
+      <div class="spec-t">STUDENT SPEC SHEET</div>
+      <dl>
+        <div class="row"><dt>Focus</dt><dd>Engineering: structural, software, systems</dd></div>
+        <div class="row"><dt>Grade</dt><dd>11, 90%+ average, Honour Roll twice</dd></div>
+        <div class="row"><dt>Built</dt><dd>Disaster Safe Home, WellSpace, FuturePaths</dd></div>
+        <div class="row"><dt>Recognized</dt><dd>Professional Engineers Ontario award, NRSEF 2026</dd></div>
+        <div class="row"><dt>School</dt><dd>Eden High School, St. Catharines, Ontario</dd></div>
+      </dl>
     </div>
   </div>
+</header>
 
-  <!-- WHERE I FIT -->
-  <div class="section-wrap" id="rolefit">
-    <div class="section-header">
-      <span class="section-num">01</span>
-      <h2 class="section-title">Where I Fit</h2>
+<div class="ticker" aria-hidden="true"><div class="track" id="trk"></div></div>
+
+<section id="lab" class="wrap">
+  <div class="eyebrow rv">The lab</div>
+  <h2 class="rv">Structure. Software. <em>Systems.</em></h2>
+  <p class="sub rv">Same method every time: find the real problem, design a solution, test it, improve it.</p>
+  <div class="bento">
+
+    <div class="cell c-quake rv">
+      <div class="kind">Structural</div>
+      <h3>Disaster Safe Home</h3>
+      <p>Base isolation plus X-bracing. Toggle it and shake the ground.</p>
+      <div class="stage iso" id="stage">
+        <svg viewBox="0 0 300 230" fill="none" stroke="#8B5E3C" stroke-width="1.6">
+          <g class="ground" id="gr"><path d="M-20 205H320" stroke="#14110F"/><path d="M-10 205l-9 12M20 205l-9 12M50 205l-9 12M80 205l-9 12M110 205l-9 12M140 205l-9 12M170 205l-9 12M200 205l-9 12M230 205l-9 12M260 205l-9 12M290 205l-9 12" stroke-opacity=".4"/></g>
+          <g class="ground" id="gr2"><rect x="70" y="190" width="160" height="10" fill="#E9E3DA" stroke="#14110F"/></g>
+          <g class="bld" id="bd">
+            <g id="iso"><rect x="100" y="178" width="22" height="12" rx="3"/><rect x="189" y="178" width="22" height="12" rx="3"/></g>
+            <rect x="85" y="168" width="130" height="10" fill="#E9E3DA"/>
+            <path d="M92 168V70M150 168V70M208 168V70M88 119H212M85 70H215"/>
+            <path d="M92 168L150 119M150 168L92 119M150 168L208 119M208 168L150 119M92 119L150 70M150 119L92 70M150 119L208 70M208 119L150 70" stroke-opacity=".55"/>
+            <path d="M82 70L150 38L218 70Z" fill="#E9E3DA"/>
+          </g>
+        </svg>
+      </div>
+      <div class="qctl">
+        <button class="tog" id="tog" aria-pressed="true">Base isolation: ON</button>
+        <label>Magnitude <input type="range" id="mag" min="2" max="14" value="7" aria-label="Shake strength"></label>
+      </div>
     </div>
-    <div class="honors-grid">
-      <div class="honor-item reveal">
-        <div class="honor-title">Project Management</div>
-        <div class="honor-org">Scope · Budget · Delivery</div>
-        <p class="honor-desc">Took WellSpace and FuturePaths from idea to launch. Managed a $1,500 budget and worked with a cross-functional campaign team at 20/20 Mission. [Team size: X people.]</p>
+
+    <div class="cell k c-code rv" style="--d:.1s">
+      <div class="kind" style="color:var(--brass)">Software</div>
+      <h3>WellSpace</h3>
+      <div class="code"><i>// firestore.rules</i>
+<b>match</b> /journals/{uid} {
+  <b>allow</b> read, write:
+    <b>if</b> request.auth.uid == uid;
+}<span class="cur"></span></div>
+      <p>Security lives in the rules, not the UI. A student's journal is theirs alone.</p>
+    </div>
+
+    <div class="cell k c-flow rv" style="--d:.2s">
+      <div class="kind" style="color:var(--brass)">Systems</div>
+      <h3>Who sees what</h3>
+      <svg class="flowsvg" viewBox="0 0 260 120" fill="none" stroke="currentColor" stroke-width="1.4">
+        <rect x="4" y="30" width="64" height="34" rx="6"/><rect x="98" y="30" width="64" height="34" rx="6"/><rect x="192" y="30" width="64" height="34" rx="6"/>
+        <path class="fl" d="M68 47H98M162 47H192"/><path d="M130 64V84" stroke-dasharray="3 4"/>
+        <rect x="85" y="84" width="90" height="26" rx="6" stroke-opacity=".6"/>
+        <text x="36" y="51" text-anchor="middle">Student</text><text x="130" y="51" text-anchor="middle">Rules</text><text x="224" y="51" text-anchor="middle">Teacher</text><text x="130" y="101" text-anchor="middle">Private journal</text>
+      </svg>
+      <p>Data flows only where the student allows it.</p>
+    </div>
+
+    <div class="cell c-method rv">
+      <div class="kind">Method</div>
+      <h3>Find it. Design it. Break it. Fix it.</h3>
+      <div class="steps">
+        <div class="step"><b>01 FIND</b>The real problem, not the obvious one.</div>
+        <div class="step"><b>02 DESIGN</b>A solution with real constraints.</div>
+        <div class="step"><b>03 TEST</b>Push it until it fails.</div>
+        <div class="step"><b>04 IMPROVE</b>Use what broke to build better.</div>
       </div>
-      <div class="honor-item reveal" style="transition-delay:0.05s">
-        <div class="honor-title">Business Analysis</div>
-        <div class="honor-org">Early-stage · Feedback · Data</div>
-        <p class="honor-desc">Completed Coursera's Business Analysis and Process Management course. Changed WellSpace based on feedback from Ontario educators, reviewed 20/20 Mission's site for usability, and used analytics to adjust campaigns at York Region Educational Services.</p>
-      </div>
-      <div class="honor-item reveal" style="transition-delay:0.1s">
-        <div class="honor-title">Business Administration</div>
-        <div class="honor-org">Marketing · Finance · DECA</div>
-        <p class="honor-desc">Two years in DECA, the UWaterloo Junior Financial Literacy Competition, a $1,500 program budget at 20/20 Mission, marketing campaigns at York Region, and a CPA Ontario outreach event at Brock University.</p>
-      </div>
-      <div class="honor-item reveal">
-        <div class="honor-title">Industrial Engineering</div>
-        <div class="honor-org">Systems · Workflow</div>
-        <p class="honor-desc">Designed WellSpace's student-to-teacher workflow: class join codes, student approval, and support alerts. [Add a measured process improvement here when you have one.]</p>
-      </div>
-      <div class="honor-item reveal" style="transition-delay:0.05s">
-        <div class="honor-title">Software Engineering</div>
-        <div class="honor-org">Systems · Security · Delivery</div>
-        <p class="honor-desc">Shipped a live full-stack web app with authentication, real-time sync, Firestore security rules, Git version control, and a PIPEDA-based privacy policy.</p>
-      </div>
-      <div class="honor-item reveal" style="transition-delay:0.1s">
-        <div class="honor-title">Civil Engineering</div>
-        <div class="honor-org">Structures · Safety · Design</div>
-        <p class="honor-desc">Built and tested an earthquake-resistant home prototype using base isolation and X-bracing. Won the Outstanding Achievement Award from Professional Engineers Ontario at NRSEF 2026.</p>
-      </div>
+    </div>
+
+    <div class="cell k c-stat rv" style="--d:.1s">
+      <div class="stat"><div class="big">3</div><small>projects shipped</small></div>
+      <div class="stat"><div class="big">1</div><small>PEO award</small></div>
     </div>
   </div>
+</section>
 
-  <!-- PROJECTS -->
-  <div class="section-wrap" id="projects">
-    <div class="section-header">
-      <span class="section-num">02</span>
-      <h2 class="section-title">Projects</h2>
+<section id="projects">
+  <div class="wrap">
+    <div class="eyebrow rv">Selected work</div>
+    <h2 class="rv">Projects</h2>
+    <p class="sub rv">Each one started with a problem I could see and ended with something that works.</p>
+
+    <article class="proj rv">
+      <div>
+        <div class="num">01</div><div class="kind">Structural engineering</div>
+        <h3>Disaster Safe Home</h3>
+        <span class="tag">Base isolation</span><span class="tag">X-bracing</span><span class="tag">Failure analysis</span><span class="tag">Prototyping</span>
+        <a class="plink" href="https://www.linkedin.com/in/muhammad-taha20100618/details/projects/" target="_blank" rel="noopener">See images on LinkedIn</a>
+      </div>
+      <dl>
+        <dt>Problem</dt><dd>Ordinary homes pass dangerous ground vibration straight to the people inside during an earthquake.</dd>
+        <dt>Approach</dt><dd>I researched materials, stability, and real building constraints, then built a prototype combining <strong>base isolation</strong> and <strong>X-bracing</strong> to absorb ground movement and strengthen the structure.</dd>
+        <dt>Testing</dt><dd>I uploaded a digital version of the prototype to AI and tested it against earthquakes, hurricanes, and other harsh weather to find the point where it would break. Then I checked how often events that large actually happen in <strong>Montreal, Quebec</strong>, so the design was judged against the risks of a specific region.</dd>
+        <dt>Result</dt><dd>Presented at the Niagara Regional Science and Engineering Fair (NRSEF) 2026 and won the <strong>Outstanding Achievement Award from Professional Engineers Ontario</strong>.</dd>
+      </dl>
+    </article>
+
+    <article class="proj rv">
+      <div>
+        <div class="num">02</div><div class="kind">Software and systems</div>
+        <h3>WellSpace</h3>
+        <span class="tag">Firebase</span><span class="tag">Firestore rules</span><span class="tag">PIPEDA</span><span class="tag">AI-assisted build</span>
+        <a class="plink" href="https://wellspaceapp.github.io/WellSpace/" target="_blank" rel="noopener">Open the live app</a>
+        <a class="plink" href="https://www.linkedin.com/in/muhammad-taha20100618/details/projects/" target="_blank" rel="noopener">More on LinkedIn</a>
+      </div>
+      <dl>
+        <dt>Problem</dt><dd>Students had no simple way to track their wellbeing or signal distress to a teacher, and sharing anything personal has to feel safe.</dd>
+        <dt>Approach</dt><dd>I led the product and directed AI-assisted development, then tested, reviewed, and secured it myself. Students get mood and sleep tracking, goals, a planner, a private journal, and province-specific crisis helplines. Teachers get a live class dashboard with support alerts and student approval.</dd>
+        <dt>Safety</dt><dd>Journals are owner-only and teachers see only what students choose to share, enforced by Firestore security rules. Includes an account deletion flow and a privacy policy built around PIPEDA.</dd>
+        <dt>Result</dt><dd>Live and free for students and teachers. I reached out to Ontario educators and changed the product based on their feedback.</dd>
+      </dl>
+    </article>
+
+    <article class="proj rv">
+      <div>
+        <div class="num">03</div><div class="kind">Leadership and community</div>
+        <h3>FuturePaths</h3>
+        <span class="tag">Student-led initiative</span><span class="tag">Outreach</span><span class="tag">Web platform</span>
+        <a class="plink" href="https://futurepathsstudent.base44.app/" target="_blank" rel="noopener">View the site</a>
+      </div>
+      <dl>
+        <dt>Problem</dt><dd>Many students my age feel unsure about their future and have no honest, accessible guidance on careers and academics. I kept seeing this come up around me.</dd>
+        <dt>Approach</dt><dd>I started FuturePaths, a student-led initiative offering career exploration, academic readiness tools, and peer insight.</dd>
+        <dt>My role</dt><dd>Planning, outreach, content strategy, and platform development, from zero to a live launch.</dd>
+        <dt>Result</dt><dd>A short, focused project that helped <strong>5+ students in my region</strong> find direction.</dd>
+      </dl>
+    </article>
+  </div>
+</section>
+
+<section id="experience" class="dark">
+  <div class="wrap">
+    <div class="eyebrow rv">Where I've worked</div>
+    <h2 class="rv">Experience</h2>
+    <p class="sub rv">Roles where I managed budgets, worked on teams, and built things for real audiences.</p>
+
+    <div class="job rv">
+      <div><div class="when">Jan 2026 to present</div><div class="org">20/20 Mission</div></div>
+      <div><h3>Education and Awareness Coordinator</h3><ul>
+        <li>Managed and allocated a $1,500 budget across outreach campaigns and educational programs</li>
+        <li>Helped prepare presentations and emailed teachers to share 20/20 Mission's awareness work</li>
+        <li>Reached out to schools and their principals to bring the organization's message to more students</li>
+        <li>Turned complex social issues into clear, accurate content, working with a cross-functional team</li></ul></div>
     </div>
-
-    <div class="project-item">
-      <div class="project-left">
-        <div class="project-num">01 / 03 · Software · Project Management</div>
-        <div class="project-name">WellSpace</div>
-        <div class="project-tags">
-          <span class="tag">Product Ownership</span>
-          <span class="tag">Firebase</span>
-          <span class="tag">Firestore Rules</span>
-          <span class="tag">JavaScript</span>
-          <span class="tag">PIPEDA</span>
-        </div>
-        <a href="https://wellspaceapp.github.io/WellSpace/" target="_blank" class="project-link">Live Site &#8594;</a>
-        <br><br>
-        <a href="https://www.linkedin.com/in/muhammad-taha20100618/details/projects/" target="_blank" class="project-link">More on LinkedIn &#8594;</a>
-      </div>
-      <div class="project-right">
-        <p class="project-desc"><strong>Problem:</strong> High school students had no simple way to track their wellbeing or signal distress to a teacher. <strong>Solution:</strong> a free wellness platform with mood and sleep tracking, goals, a weekly planner, a private journal, province-specific crisis helplines, and a teacher dashboard with live class insights and support alerts. Students control exactly what each teacher sees. A researcher reached out to pilot it after finding it independently.</p>
-        <div class="project-highlight">
-          <div class="project-highlight-label">My role: founder and product owner</div>
-          <p>I led the product and directed AI-assisted development, then tested, reviewed, and secured the result myself: authentication, class join codes, a live teacher dashboard with student approval, owner-only journals enforced by Firestore security rules, and an account deletion flow and privacy policy built around PIPEDA. I reached out to Ontario educators and changed the product based on their feedback.</p>
-        </div>
-        <div class="project-highlight" style="margin-top:0.8rem;">
-          <div class="project-highlight-label">Outcome</div>
-          <p>[X users across X schools · X teachers · pilot status · one change you made because of educator feedback]</p>
-        </div>
-      </div>
+    <div class="job rv">
+      <div><div class="when">Nov 2025 to Jan 2026</div><div class="org">20/20 Mission</div></div>
+      <div><h3>Student Volunteer, IT</h3><ul>
+        <li>Worked on the organization's website: edited pages, improved layouts, and added content</li>
+        <li>Used VS Code and Git to organize files and track changes as a team</li>
+        <li>Joined IT planning meetings on site structure, updates, and future goals</li>
+        <li>Tested changes with teammates and flagged usability and accessibility issues</li></ul></div>
     </div>
-
-    <div class="project-item">
-      <div class="project-left">
-        <div class="project-num">02 / 03 · Civil · Structural Engineering</div>
-        <div class="project-name">Disaster Safe Home</div>
-        <div class="project-tags">
-          <span class="tag">Base Isolation</span>
-          <span class="tag">X-Bracing</span>
-          <span class="tag">Prototyping</span>
-          <span class="tag">Research</span>
-        </div>
-        <a href="https://www.linkedin.com/in/muhammad-taha20100618/details/projects/" target="_blank" class="project-link">See Images &#8594;</a>
-      </div>
-      <div class="project-right">
-        <p class="project-desc"><strong>Problem:</strong> Conventional homes transfer dangerous seismic vibrations directly to the people inside. <strong>Solution:</strong> a physical prototype combining base isolation and X-bracing to absorb ground movement and improve stability, built within real material constraints. I built it, tested it, and analyzed the results.</p>
-        <div class="project-highlight">
-          <div class="project-highlight-label">Recognition</div>
-          <p>Presented at the Niagara Regional Science and Engineering Fair (NRSEF) 2026 and won the Outstanding Achievement Award from Professional Engineers Ontario.</p>
-        </div>
-        <div class="project-highlight" style="margin-top:0.8rem;">
-          <div class="project-highlight-label">Design details</div>
-          <p>[Materials · scale · how you tested it · what the results showed · what you changed after testing]</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-item">
-      <div class="project-left">
-        <div class="project-num">03 / 03 · Project Management · Community</div>
-        <div class="project-name">FuturePaths</div>
-        <div class="project-tags">
-          <span class="tag">Founder</span>
-          <span class="tag">Outreach</span>
-          <span class="tag">Content Strategy</span>
-          <span class="tag">Web Platform</span>
-        </div>
-        <a href="https://futurepathsstudent.base44.app" target="_blank" class="project-link">View Live &#8594;</a>
-        <br><br>
-        <a href="https://www.linkedin.com/in/muhammad-taha20100618/details/projects/" target="_blank" class="project-link">More on LinkedIn &#8594;</a>
-      </div>
-      <div class="project-right">
-        <p class="project-desc"><strong>Problem:</strong> Students had no peer-driven space for honest guidance on academics, careers, and life after high school. <strong>Solution:</strong> I founded FuturePaths, a student-led [platform / nonprofit: pick one that's accurate] with career exploration, academic readiness tools, and peer insight.</p>
-        <div class="project-highlight">
-          <div class="project-highlight-label">My role: founder</div>
-          <p>I ran planning, outreach, content strategy, and platform development, taking it from zero to a live launch.</p>
-        </div>
-        <div class="project-highlight" style="margin-top:0.8rem;">
-          <div class="project-highlight-label">Outcome</div>
-          <p>[Audience size · students or schools reached · events run]</p>
-        </div>
-      </div>
+    <div class="job rv">
+      <div><div class="when">Feb to Aug 2025</div><div class="org">York Region Educational Services</div></div>
+      <div><h3>Social Media Marketing Specialist</h3><ul>
+        <li>Led youth-focused campaigns that increased participation in educational programs</li>
+        <li>Created posts and videos for events and kept branding consistent across platforms</li>
+        <li>Tracked campaign performance in spreadsheets and used it to improve outreach</li></ul></div>
     </div>
   </div>
+</section>
 
-  <!-- EXPERIENCE -->
-  <div class="section-wrap" id="experience">
-    <div class="section-header">
-      <span class="section-num">03</span>
-      <h2 class="section-title">Experience</h2>
-    </div>
+<section id="skills" class="wrap">
+  <div class="eyebrow rv">Toolbox</div>
+  <h2 class="rv">Skills</h2>
+  <p class="sub rv">What I can do today, and what I'm still learning.</p>
+  <div class="cols">
+    <div class="rv"><h3>Engineering and design</h3><ul>
+      <li>Prototyping and testing</li><li>Failure and risk analysis</li><li>Structural design <small>(introductory)</small></li><li>Research and technical writing</li><li>Systems and design thinking</li></ul></div>
+    <div class="rv" style="--d:.1s"><h3>Software and tools</h3><ul>
+      <li>AI-assisted development <small>(how I build)</small></li><li>Testing and securing web apps</li><li>Firebase and Firestore security rules</li><li>Git, GitHub, VS Code</li><li>Microsoft Excel <small>(certified)</small></li></ul></div>
+    <div class="rv" style="--d:.2s"><h3>Leadership and business</h3><ul>
+      <li>Project planning and delivery</li><li>Budget management</li><li>Public speaking</li><li>Outreach and communication</li><li>Using feedback and analytics</li></ul></div>
+  </div>
+</section>
 
-    <div class="exp-item">
-      <div>
-        <div class="exp-period">Jan 2026 to Present</div>
-        <div class="exp-org">20/20 Mission</div>
-      </div>
-      <div>
-        <div class="exp-role">Education and Awareness Coordinator</div>
-        <ul class="exp-bullets">
-          <li>Managed a $1,500 budget across outreach campaigns and educational programs</li>
-          <li>Planned and delivered awareness campaigns with a cross-functional team of [X people]</li>
-          <li>Turned complex social issues into clear public-facing content</li>
-          <li>Result: [reach, attendance, or engagement number]</li>
-        </ul>
-      </div>
-    </div>
+<section id="recognition" class="wrap" style="padding-top:0">
+  <div class="eyebrow rv">Beyond the code</div>
+  <h2 class="rv">Recognition and <em>learning</em></h2>
+  <p class="sub rv">Awards, certifications, and activities outside the classroom.</p>
+  <div class="award rv">
+    <div class="kind">Professional Engineers Ontario, NRSEF 2026</div>
+    <h3>Outstanding Achievement Award</h3>
+    <p>Awarded for strong engineering thinking and innovation in the Disaster Safe Home project.</p>
+  </div>
+  <div class="cols">
+    <div class="rv"><h3>Also earned</h3><ul>
+      <li>3rd place, Royal Canadian Legion provincial speech competition</li><li>Honour Roll, Grades 9 and 10</li></ul></div>
+    <div class="rv" style="--d:.1s"><h3>Certifications</h3><ul>
+      <li>Microsoft Office Specialist: Excel</li><li>Business Analysis and Process Management</li><li>UWaterloo Junior Financial Literacy Competition</li><li>Build a Website with WordPress</li><li>Google Ads for Beginners</li></ul></div>
+    <div class="rv" style="--d:.2s"><h3>Activities</h3><ul>
+      <li>DECA, 2 years</li><li>Yearbook Club</li><li>Muslim Student Association</li><li>Junior boys soccer</li><li>CPA Ontario outreach event, Brock University</li></ul></div>
+  </div>
+  <div class="edu rv">
+    <h3>Eden High School</h3>
+    <p>St. Catharines, Ontario. Ontario Secondary School Diploma, in progress. Grade 11, 2024 to 2028.</p>
+  </div>
+</section>
 
-    <div class="exp-item">
-      <div>
-        <div class="exp-period">Nov 2025 to Jan 2026</div>
-        <div class="exp-org">20/20 Mission</div>
-      </div>
-      <div>
-        <div class="exp-role">Student Volunteer, IT</div>
-        <ul class="exp-bullets">
-          <li>Took part in IT meetings planning website structure, updates, and development goals</li>
-          <li>Built and edited website pages using VS Code, Git, and AI development tools</li>
-          <li>Reviewed site features from a student-user view and gave feedback on usability, clarity, and accessibility</li>
-          <li>Tested changes with the team and tracked updates through Git version control</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="exp-item">
-      <div>
-        <div class="exp-period">Feb 2025 to Aug 2025</div>
-        <div class="exp-org">York Region Educational Services</div>
-      </div>
-      <div>
-        <div class="exp-role">Social Media Marketing Specialist</div>
-        <ul class="exp-bullets">
-          <li>Led youth-focused campaigns that increased participation in educational programs</li>
-          <li>Used analytics to track performance and strengthen outreach</li>
-          <li>Kept branding and messaging consistent across platforms</li>
-          <li>Result: [participation increase, follower growth, or engagement %]</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="exp-item">
-      <div>
-        <div class="exp-period">Jul 2025 to Aug 2025</div>
-        <div class="exp-org">York Region Educational Services</div>
-      </div>
-      <div>
-        <div class="exp-role">Social Media Designer</div>
-        <ul class="exp-bullets">
-          <li>Designed graphics and layouts supporting educational programs</li>
-          <li>Worked with the marketing team to prepare content for upcoming events</li>
-        </ul>
-      </div>
+<section id="contact">
+  <div class="wrap">
+    <h2 class="rv">Let's <em>connect.</em></h2>
+    <div class="btns rv" style="--d:.15s">
+      <a class="btn solid" href="mailto:m.tahashern@gmail.com">Email me</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/muhammad-taha20100618" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/mtahashern" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
+</section>
 
-  <!-- SKILLS -->
-  <div class="section-wrap" id="skills">
-    <div class="section-header">
-      <span class="section-num">04</span>
-      <h2 class="section-title">Skills</h2>
-    </div>
-    <div class="skills-grid">
-      <div class="reveal">
-        <div class="skill-group-title">Management and Business</div>
-        <ul class="skill-list">
-          <li>Project Planning and Delivery</li>
-          <li>Budget Management</li>
-          <li>Campaign Planning</li>
-          <li>Business Analysis <span class="skill-note">(coursework)</span></li>
-          <li>Gathering and Acting on User Feedback</li>
-          <li>Cross-Functional Collaboration</li>
-          <li>Public Speaking</li>
-        </ul>
-      </div>
-      <div class="reveal" style="transition-delay:0.1s">
-        <div class="skill-group-title">Software and Systems</div>
-        <ul class="skill-list">
-          <li>HTML, CSS, JavaScript</li>
-          <li>Firebase and Firestore Security Rules</li>
-          <li>Git and GitHub</li>
-          <li>AI-Assisted Development</li>
-          <li>Privacy Basics <span class="skill-note">(PIPEDA)</span></li>
-          <li>Microsoft Excel <span class="skill-note">(certified)</span></li>
-          <li>WordPress</li>
-        </ul>
-      </div>
-      <div class="reveal" style="transition-delay:0.2s">
-        <div class="skill-group-title">Engineering</div>
-        <ul class="skill-list">
-          <li>Systems Thinking</li>
-          <li>Design Thinking</li>
-          <li>Research and Prototyping</li>
-          <li>Structural Design <span class="skill-note">(introductory)</span></li>
-          <li>Technical Writing</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<footer><span>Muhammad Taha, 2026</span><span>Eden High School, St. Catharines, ON</span></footer>
+<div class="cd"></div><div class="cr"></div>
 
-  <!-- CREDENTIALS -->
-  <div class="section-wrap" id="credentials">
-    <div class="section-header">
-      <span class="section-num">05</span>
-      <h2 class="section-title">Credentials</h2>
-    </div>
+<script>
+const $=s=>[...document.querySelectorAll(s)],root=document.documentElement,rs=root.style;
+const calm=matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    <div class="honors-grid">
-      <div class="honor-item reveal">
-        <div class="honor-title">Outstanding Achievement Award</div>
-        <div class="honor-org">Professional Engineers Ontario · NRSEF 2026</div>
-        <p class="honor-desc">Awarded for engineering thinking and innovation in Disaster Safe Home.</p>
-      </div>
-      <div class="honor-item reveal" style="transition-delay:0.1s">
-        <div class="honor-title">Provincial Speech Competition, 3rd Place</div>
-        <div class="honor-org">Royal Canadian Legion · Ontario Provincial Command</div>
-        <p class="honor-desc">Placed third in the provincial public speaking competition.</p>
-      </div>
-      <div class="honor-item reveal" style="transition-delay:0.2s">
-        <div class="honor-title">Honour Roll, Two Years</div>
-        <div class="honor-org">Eden High School · Grades 9 and 10</div>
-        <p class="honor-desc">90%+ average in two consecutive years.</p>
-      </div>
-    </div>
+// laptop zoom: scale so the screen fills the viewport
+const scr=document.querySelector('.lscreen');
+rs.setProperty('--z',Math.max(innerWidth/scr.offsetWidth,innerHeight/scr.offsetHeight)*1.05);
 
-    <div class="certs-list" style="margin-top:3rem;">
-      <div class="cert-item reveal">
-        <div class="cert-name">Business Analysis and Process Management</div>
-        <div class="cert-issuer">Coursera · Apr 2025</div>
-      </div>
-      <div class="cert-item reveal" style="transition-delay:0.05s">
-        <div class="cert-name">Microsoft Office Specialist: Excel</div>
-        <div class="cert-issuer">Coursera Project Network · Aug 2025</div>
-      </div>
-      <div class="cert-item reveal" style="transition-delay:0.1s">
-        <div class="cert-name">UWaterloo Junior Financial Literacy Competition</div>
-        <div class="cert-issuer">University of Waterloo · May 2025</div>
-      </div>
-      <div class="cert-item reveal" style="transition-delay:0.15s">
-        <div class="cert-name">Build a Website with WordPress</div>
-        <div class="cert-issuer">Coursera · Apr 2025</div>
-      </div>
-      <div class="cert-item reveal" style="transition-delay:0.2s">
-        <div class="cert-name">Google Ads for Beginners</div>
-        <div class="cert-issuer">Coursera Project Network · Aug 2025</div>
-      </div>
-      <div class="cert-item reveal" style="transition-delay:0.25s">
-        <div class="cert-name">Equity and Inclusion Lens</div>
-        <div class="cert-issuer">NonprofitReady · Jun 2025</div>
-      </div>
-    </div>
+// skip intro
+const skip=()=>root.classList.add('skip');
+document.querySelector('.loader').addEventListener('click',skip);
+addEventListener('keydown',skip,{once:true});
 
-    <div class="edu-block reveal" style="margin-top:3rem;">
-      <div>
-        <div class="edu-school">[Current school]</div>
-        <div class="edu-degree">Ontario Secondary School Diploma (In Progress) · Grade 11 · 2024 to 2028</div>
-        <div class="edu-badges">
-          <span class="edu-badge">Honour Roll 2x</span>
-          <span class="edu-badge">DECA</span>
-          <span class="edu-badge">Yearbook Club</span>
-          <span class="edu-badge">MSA</span>
-        </div>
-      </div>
-      <div class="edu-right">
-        <div class="edu-period">2024 to 2028</div>
-        <div class="edu-gpa">90%+ Average</div>
-      </div>
-    </div>
-  </div>
+// ticker
+const items=['Disaster Safe Home','Base isolation','X-bracing','WellSpace','Firebase','Firestore security rules','FuturePaths','Student-led','PEO Outstanding Achievement Award','NRSEF 2026'];
+const row=items.map(t=>`<span>${t}</span><span class="s">+</span>`).join('');
+document.getElementById('trk').innerHTML=row+row;
+
+// reveals
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+$('.rv').forEach(el=>io.observe(el));
+
+// nav: progress, parallax, active link
+const links=$('nav li a'),secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+function onScroll(){
+  const y=scrollY,max=document.body.scrollHeight-innerHeight;
+  rs.setProperty('--p',(max>0?y/max*100:0)+'%');rs.setProperty('--g',y*.18+'px');
+  let cur=-1;secs.forEach((s,i)=>{if(s.getBoundingClientRect().top<innerHeight*.4)cur=i});
+  links.forEach((a,i)=>a.classList.toggle('on',i===cur));
+  if(cur>=0&&innerWidth<=900)links[cur].scrollIntoView({inline:'center',block:'nearest'});
+}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+// typing line
+const words=['structural engineering','software and systems','things that solve real problems'],ty=document.getElementById('ty');
+let w=0,c=0,del=false;
+function tick(){const t=words[w];
+  if(!del){c++;ty.textContent=t.slice(0,c);if(c===t.length){del=true;return setTimeout(tick,1600)}}
+  else{c--;ty.textContent=t.slice(0,c);if(c===0){del=false;w=(w+1)%words.length}}
+  setTimeout(tick,del?30:65)}
+if(calm)ty.textContent=words[0];else setTimeout(tick,root.classList.contains('skip')?1500:5200);
+
+// earthquake demo
+const stage=document.getElementById('stage'),tog=document.getElementById('tog'),mag=document.getElementById('mag');
+function quake(){
+  const a=+mag.value,iso=tog.getAttribute('aria-pressed')==='true';
+  stage.style.setProperty('--amp',a);
+  stage.style.setProperty('--bamp',iso?a*.15:a);
+  ['gr','gr2'].forEach(id=>document.getElementById(id).style.setProperty('--amp',a));
+  document.getElementById('bd').style.setProperty('--bamp',iso?a*.15:a);
+  document.getElementById('iso').style.opacity=iso?1:.15;
+  tog.textContent='Base isolation: '+(iso?'ON':'OFF');
+}
+tog.addEventListener('click',()=>{tog.setAttribute('aria-pressed',tog.getAttribute('aria-pressed')!=='true');quake()});
+mag.addEventListener('input',quake);quake();
+
+// project card spotlight
+$('.proj').forEach(el=>el.addEventListener('mousemove',e=>{
+  const r=el.getBoundingClientRect();
+  el.style.setProperty('--mx',(e.clientX-r.left)/r.width*100+'%');
+  el.style.setProperty('--my',(e.clientY-r.top)/r.height*100+'%')}));
+
+// cursor
+if(matchMedia('(pointer:fine)').matches&&!calm){
+  const cd=document.querySelector('.cd'),cr=document.querySelector('.cr');let x=0,y=0,rx=0,ry=0;
+  addEventListener('mousemove',e=>{x=e.clientX;y=e.clientY;cd.style.transform=`translate(${x}px,${y}px)`;cr.classList.toggle('big',!!e.target.closest('a,button,.proj'))});
+  (function f(){rx+=(x-rx)*.15;ry+=(y-ry)*.15;cr.style.transform=`translate(${rx}px,${ry}px)`;requestAnimationFrame(f)})();
+}
+</script>
+</body>
+</html>
